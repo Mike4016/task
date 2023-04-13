@@ -23,16 +23,16 @@
       function leapyear() {
         const yearinput = input.value;
         if (yearinput % 400 === 0) {
-          result.innerText = yearinput + "年是閏年1";
+          result.innerText = yearinput + "年是閏年";
           console.log(yearinput);
         } else if (yearinput % 4 === 0 && yearinput % 100 !== 0) {
-          result.innerText = yearinput + "年是閏年2";
+          result.innerText = yearinput + "年是閏年";
           console.log(yearinput);
         } else if (yearinput % 4 !== 0) {
-          result.innerText = yearinput + "年是平年1";
+          result.innerText = yearinput + "年是平年";
           console.log(yearinput);
         } else if (yearinput % 100 === 0 && yearinput % 400 !== 0) {
-          result.innerText = yearinput + "年是平年2";
+          result.innerText = yearinput + "年是平年";
           console.log(yearinput);
         } else {
           result.innerText = yearinput;

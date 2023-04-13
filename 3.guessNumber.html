@@ -8,6 +8,7 @@
   </head>
   <body>
     <div>
+      <h2>猜數字遊戲</h2>
       <label for="input">請輸入猜測的數字(1~100)，輸入0離開遊戲 =></label>
       <input type="number" min="0" max="100" id="input" />
       <button id="guess" onclick="guessChange()">確定</button>
@@ -32,12 +33,13 @@
         console.log("userGuess", userGuess);
         if (userGuess === 0) {
           document.getElementById("input").disabled = true;
+          result.innerText = "結束遊戲";
         } else if (userGuess < guessNum) {
-          result.innerText = "猜小了";
+          result.innerText = "數字太小!";
         } else if (userGuess > guessNum) {
-          result.innerText = "猜大了";
+          result.innerText = "數字太大!";
         } else if (userGuess === guessNum) {
-          result.innerText = "猜對了";
+          result.innerText = "猜中數字 = " + userGuess;
         } else {
           result.innerText = "請輸入數字";
         }
