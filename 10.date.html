@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生日計算幾歲</title>
+  </head>
+  <body>
+    <div>
+      <h2>計算幾歲</h2>
+      <label>出生年份:</label>
+      <input type="number" id="idBirthday" max="2023" />
+      <input
+        type="button"
+        id="idbut"
+        value="輸入出生年份"
+        onclick="checkBirthday();"
+      />
+      <br />
+      <span id="idsp"></span>
+    </div>
+
+    <script>
+      function checkBirthday() {
+        let idBirthday = document.querySelector("#idBirthday");
+        let idsp = document.querySelector("#idsp");
+        myBirthday = idBirthday.value;
+        age = 2023 - myBirthday;
+        idsp.innerHTML = "今年" + age + "歲";
+      }
+    </script>
+  </body>
+</html>

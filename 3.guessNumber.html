@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>猜數字</title>
+  </head>
+  <body>
+    <div>
+      <label for="input">請輸入猜測的數字(1~100)，輸入0離開遊戲 =></label>
+      <input type="number" min="1" max="100" id="input" />
+      <button id="guess" onclick="guessChange()">確定</button>
+    </div>
+    <div>
+      <span id="result"></span>
+    </div>
+
+    <script>
+      let num = Math.random();
+      console.log(num); //0-1之間的值
+      console.log(num * 100); //0-1之間的值
+      //Math.floor() 無條件捨去
+      let guessNum = Math.floor(num * 100); //取整數
+      let input = document.querySelector("#input");
+      let result = document.querySelector("#result");
+      function guessChange() {
+        let userInput = input.value;
+        // console.log(userInput);
+        input.value = "";
+        let userGuess = parseInt(userInput);
+        console.log("userGuess", userGuess);
+        if (userGuess < guessNum) {
+          result.innerText = "猜小了";
+        } else if (userGuess > guessNum) {
+          result.innerText = "猜大了";
+        } else if (userGuess === guessNum) {
+          result.innerText = "猜對了";
+        } else {
+          result.innerText = "請輸入數字";
+        }
+      }
+    </script>
+  </body>
+</html>

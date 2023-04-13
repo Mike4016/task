@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>檢查電子郵件</title>
+  </head>
+  <body>
+    <label>email:</label>
+    <input type="email" id="idEmail" />
+    <span id="idsp"></span><br />
+    <input type="button" id="idbut" value="輸入Email" onclick="checkEmail();" />
+    <script>
+      function checkEmail() {
+        let idEmail = document.querySelector("#idEmail");
+        let idsp = document.querySelector("#idsp");
+        let myEmail = idEmail.value;
+        let check =
+          /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+        if (myEmail.search(check) != -1) {
+          idsp.innerHTML = "123";
+        } else {
+          idsp.innerHTML = "456";
+        }
+      }
+    </script>
+  </body>
+</html>

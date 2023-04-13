@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>溫度轉換</title>
+  </head>
+  <body>
+    <div>
+      <h1>溫度轉換</h1>
+      <div>
+        <label for="myC">請輸入攝氏溫度 :</label>
+        <input type="number" class="myC" />°C
+        <button onclick="myChangeC()">轉換</button>
+        <div>
+          <span id="resultC">華氏:0°F</span>
+        </div>
+      </div>
+      <div>
+        <label for="myF">請輸入華氏溫度 :</label>
+        <input type="number" class="myF" />°F
+        <button onclick="myChangeF()">轉換</button>
+        <div>
+          <span id="resultF">攝氏:°C</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let myC = document.querySelector(".myC");
+      let myF = document.querySelector(".myF");
+
+      function myChangeC() {
+        c = myC.value;
+        let f = (9 / 5) * c + 32;
+        f = Math.round(f * 10) / 10;
+        resultC.innerText = "華氏:" + f + "°F";
+      }
+      function myChangeF() {
+        f = myF.value;
+        let c = ((f - 32) * 5) / 9;
+        resultF.innerText = "華氏:" + c + "°F";
+      }
+    </script>
+  </body>
+</html>

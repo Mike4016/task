@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI值計算</title>
+    <style>
+      .BMI {
+        width: 50%;
+        margin: 0 auto;
+        padding: 10px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="BMI">
+      <h1>BMI 計算機</h1>
+
+      <div>
+        <label for="myHeight">身高 :</label>
+        <input type="number" class="myHeight" min="0" />公尺
+
+        <label for="myWeight">體重:</label>
+        <input type="number" class="myWeight" min="0" />公斤
+      </div>
+      <div class="btn_block">
+        <input type="submit" value="計算" class="calcualteBMI" />
+        <input type="submit" value="重新整理" class="reset" />
+      </div>
+
+      <div class="result">
+        <h2 class="result_txt">你的BMI：</h2>
+
+        <p id="bmiText"></p>
+        <p id="resultText">0</p>
+      </div>
+    </div>
+
+    <script>
+      let bmiText = document.querySelector("#bmiText");
+      bmiText.style.display = "none";
+
+      let btn = document.querySelector(".calcualteBMI");
+      let reset = document.querySelector(".reset");
+
+      function bmi(weight, height) {
+        let w = parseInt(weight);
+        let h = parseInt(height) / 100;
+        let bmi = (w / (h * h)).toFixed(2);
+        return bmi;
+      }
+
+      function calculateBMI() {
+        let myWeight = document.querySelector(".myWeight").value;
+        let myHeight = document.querySelector(".myHeight").value;
+        let resultText = document.querySelector("#resultText");
+        let bmiText = document.querySelector("#bmiText");
+
+        if (myWeight != "" && myHeight != "") {
+          bmiText.style.display = "block";
+          resultText.innerHTML = bmi(myWeight, myHeight);
+          bmiText.innerHTML = checkBMI(bmi(myWeight, myHeight));
+        } else {
+          bmiText.style.display = "none";
+          alert("請輸入身高體重！");
+          return;
+        }
+        resultText.innerHTML = bmi(myWeight, myHeight);
+      }
+
+      function checkBMI(bmi) {
+        if (bmi < 18.5) {
+          return "過輕";
+        } else if (bmi >= 18.5 && bmi < 24) {
+          return "正常 ";
+        } else if (bmi >= 24 && bmi < 27) {
+          return "過重 ";
+        } else if (bmi >= 27 && bmi < 30) {
+          return "輕度肥胖 ";
+        } else if (bmi >= 30 && bmi < 35) {
+          return "中度肥胖 ";
+        } else if (bmi >= 35) {
+          return "重度肥胖 ";
+        }
+      }
+
+      function undo(e) {
+        document.querySelector(".myWeight").value = "";
+        document.querySelector(".myHeight").value = "";
+        bmiText.style.display = "none";
+        resultText.innerHTML = 0;
+        return;
+      }
+
+      btn.addEventListener("click", calculateBMI);
+      reset.addEventListener("click", undo);
+    </script>
+  </body>
+</html>
