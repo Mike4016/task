@@ -23,8 +23,8 @@
 
     <script>
       function checkBirthday() {
-        let idBirthday = document.querySelector("#idBirthday");
-        let idsp = document.querySelector("#idsp");
+        const idBirthday = document.querySelector("#idBirthday");
+        const idsp = document.querySelector("#idsp");
         myBirthday = idBirthday.value;
         age = 2023 - myBirthday;
         idsp.innerHTML = "今年" + age + "歲";

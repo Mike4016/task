@@ -39,24 +39,24 @@
     </div>
 
     <script>
-      let bmiText = document.querySelector("#bmiText");
+      const bmiText = document.querySelector("#bmiText");
       bmiText.style.display = "none";
 
-      let btn = document.querySelector(".calcualteBMI");
-      let reset = document.querySelector(".reset");
+      const btn = document.querySelector(".calcualteBMI");
+      const reset = document.querySelector(".reset");
 
       function bmi(weight, height) {
-        let w = parseInt(weight);
-        let h = parseInt(height) / 100;
-        let bmi = (w / (h * h)).toFixed(2);
+        const w = parseInt(weight);
+        const h = parseInt(height) / 100;
+        const bmi = (w / (h * h)).toFixed(2);
         return bmi;
       }
 
       function calculateBMI() {
-        let myWeight = document.querySelector(".myWeight").value;
-        let myHeight = document.querySelector(".myHeight").value;
-        let resultText = document.querySelector("#resultText");
-        let bmiText = document.querySelector("#bmiText");
+        const myWeight = document.querySelector(".myWeight").value;
+        const myHeight = document.querySelector(".myHeight").value;
+        const resultText = document.querySelector("#resultText");
+        const bmiText = document.querySelector("#bmiText");
 
         if (myWeight != "" && myHeight != "") {
           bmiText.style.display = "block";

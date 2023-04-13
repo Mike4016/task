@@ -18,10 +18,10 @@
     </div>
 
     <script>
-      let input = document.querySelector("#input");
+      const input = document.querySelector("#input");
 
       function leapyear() {
-        let yearinput = input.value;
+        const yearinput = input.value;
         if (yearinput % 400 === 0) {
           result.innerText = yearinput + "年是閏年1";
           console.log(yearinput);

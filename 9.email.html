@@ -13,15 +13,39 @@
     <input type="button" id="idbut" value="輸入Email" onclick="checkEmail();" />
     <script>
       function checkEmail() {
-        let idEmail = document.querySelector("#idEmail");
-        let idsp = document.querySelector("#idsp");
-        let myEmail = idEmail.value;
-        let check =
-          /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-        if (myEmail.search(check) != -1) {
-          idsp.innerHTML = "123";
+        const idEmail = document.querySelector("#idEmail");
+        const idsp = document.querySelector("#idsp");
+        const myEmail = idEmail.value;
+        const checkMouse = new RegExp(/\@/);
+        const checkPoint = new RegExp(/\./);
+        const checkTwoMouse = new RegExp(/@.*@/);
+        // if (myEmail.search(check) != -1) {
+        //   idsp.innerHTML = "123";
+        // } else {
+        //   idsp.innerHTML = "456";
+        // }
+        if (myEmail === "") {
+          idsp.innerHTML = "請填寫email";
         } else {
-          idsp.innerHTML = "456";
+          if (
+            checkMouse.test(myEmail) &&
+            checkPoint.test(myEmail) &&
+            checkTwoMouse.test(myEmail)
+          ) {
+            // idsp.innerHTML = "123";
+            idsp.innerHTML = "@不能重複";
+          } else if (checkMouse.test(myEmail) && checkPoint.test(myEmail)) {
+            // idsp.innerHTML = "123";
+            idsp.innerHTML = "email有@跟.";
+          } else if (checkTwoMouse.test(myEmail)) {
+            idsp.innerHTML = "@不能重複";
+          } else if (checkMouse.test(myEmail)) {
+            idsp.innerHTML = "email少.";
+          } else if (checkPoint.test(myEmail)) {
+            idsp.innerHTML = "email少@";
+          } else {
+            idsp.innerHTML = "email少@跟.";
+          }
         }
       }
     </script>
