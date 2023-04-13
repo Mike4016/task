@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <div id="tree"></div>
+    </div>
+
+    <script>
+      const tree = document.querySelector("#tree");
+
+      for (let i = 0; i < 8; i++) {
+        let row = "";
+        for (let j = 0; j < 15; j++) {
+          if (j >= 8 - i && j <= 8 + i) {
+            row += "^";
+          } else {
+            row += " ";
+          }
+        }
+        tree.innerHTML += row + "<br>";
+      }
+
+      tree.innerHTML += "^<br>";
+      tree.innerHTML += "^";
+    </script>
+  </body>
+</html>
